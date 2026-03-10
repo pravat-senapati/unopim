@@ -56,7 +56,7 @@ class ConfigurationController extends Controller
     {
         $groups = Arr::get(
             $this->configTree->items,
-            request()->route('slug').'.children.'.request()->route('slug2').'.children'
+            'general'.'.children.magic_ai'.'.children'
         );
 
         if ($groups) {

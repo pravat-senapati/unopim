@@ -7,6 +7,13 @@ use Webkul\MagicAI\Contracts\LLMModelInterface;
 
 class OpenAI implements LLMModelInterface
 {
+
+    public $temperatureSupportedModels = [
+        'gpt-4o',
+        'gpt-4o-mini',
+        'gpt-3.5-turbo',
+    ];
+
     /**
      * New service instance.
      */
@@ -29,6 +36,7 @@ class OpenAI implements LLMModelInterface
         config([
             'openai.api_key'      => core()->getConfigData('general.magic_ai.settings.api_key'),
             'openai.organization' => core()->getConfigData('general.magic_ai.settings.organization'),
+            'openai.request_timeout' => 120,
         ]);
     }
 
@@ -37,10 +45,9 @@ class OpenAI implements LLMModelInterface
      */
     public function ask(): string
     {
-        $result = BaseOpenAI::chat()->create([
-            'model'       => $this->model,
-            'temperature' => $this->temperature,
-            'messages'    => [
+        $payload = [
+            'model' => $this->model,
+            'messages' => [
                 [
                     'role'    => 'system',
                     'content' => $this->systemPrompt,
@@ -50,9 +57,15 @@ class OpenAI implements LLMModelInterface
                     'content' => $this->prompt,
                 ],
             ],
-        ]);
+        ];
 
-        return $result->choices[0]->message->content;
+        if (in_array($this->model, $this->temperatureSupportedModels)) {
+            $payload['temperature'] = $this->temperature;
+        }
+
+        $result = BaseOpenAI::chat()->create($payload);
+
+        return $result->choices[0]->message->content ?? '';
     }
 
     /**

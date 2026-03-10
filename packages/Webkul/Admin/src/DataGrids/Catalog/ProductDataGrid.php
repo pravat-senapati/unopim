@@ -367,6 +367,17 @@ class ProductDataGrid extends DataGrid implements ExportableInterface
             ]);
         }
 
+        if (bouncer()->hasPermission('catalog.products.mass_update') && core()->getConfigData('general.magic_ai.translation.enabled')) {
+            $this->addMassAction([
+                'title'   => trans('admin::app.catalog.products.bulk-edit.translation'),
+                'url'     => route('admin.catalog.products.bulkedit.filters'),
+                'method'  => 'POST',
+                'options' => ['actionType' => 'modal', 'modal' => 'open-bulk-translation-modal'],
+
+            ]);
+        }
+
+
         if (bouncer()->hasPermission('catalog.products.mass_update')) {
             $this->addMassAction([
                 'title'   => trans('admin::app.catalog.products.index.datagrid.update-status'),

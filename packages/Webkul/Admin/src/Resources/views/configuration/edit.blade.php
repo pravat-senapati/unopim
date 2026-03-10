@@ -9,9 +9,9 @@
 <x-admin::layouts>
     <!-- Title of the page -->
     <x-slot:title>
-        @if ($items = Arr::get($config->items, request()->route('slug') . '.children'))
+        @if ($items = Arr::get($config->items,'general' . '.children'))
             @foreach ($items as $key => $item)
-                @if ( $key == request()->route('slug2'))
+                @if ( $key == 'magic_ai')
                     {{ $title = trans($item['name']) }}
                 @endif
             @endforeach

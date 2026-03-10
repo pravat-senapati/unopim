@@ -345,11 +345,32 @@ return [
                 'success'         => 'Job executed successfully.',
                 'fetch-failed'    => 'Failed to fetch.',
                 'action'          => 'Bulk Edit',
+                'translation'     => 'Bulk Translation',
                 'gallery-preview' => 'Gallery Preview',
                 'img-preview'     => 'Image Preview',
                 'no-image'        => 'No Image',
                 'img-fail'        => 'Image upload failed',
                 'no-option'       => 'No Options',
+            ],
+
+            'bulk-translation' => [
+                'validation' => [
+                    'select-attribute-or-family' => 'Please select at least one attribute.',
+                    'select-source-channel'       => 'Please select a source channel.',
+                    'select-source-locale'        => 'Please select a source locale.',
+                    'select-target-channel'       => 'Please select a target channel.',
+                    'select-target-locale'        => 'Please select at least one target locale.',
+                    'translation-failed'          => 'Translation failed. Please try again.',
+                ],
+
+                'modal' => [
+                    'title'                  => 'Bulk Translation',
+                    'btn-cancel'             => 'Cancel',
+                    'btn-proceed'            => 'Proceed',
+                    'selected-attributes'    => 'Selected Attributes',
+                    'translation-complete'   => 'Translation completed successfully!',
+                    'translation-started'   => 'Bulk translation job has been queued. You will be notified when it is complete.',
+                ],
             ],
 
             'create-success'          => 'Product created successfully',
