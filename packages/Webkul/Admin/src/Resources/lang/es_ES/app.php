@@ -1341,6 +1341,7 @@ return [
                     'completed-batches'       => 'Total de lotes completados:',
                     'download-error-report'   => 'Descargar informe completo',
                     'edit-btn'                => 'Editar',
+                    'export-completed-success' => 'Exportación completada con éxito',
                     'exported-info'           => '¡Felicidades!Su exportación fue exitosa.',
                     'exporting-info'          => 'Exportar en proceso',
                     'export-now'              => 'Exportar ahora',

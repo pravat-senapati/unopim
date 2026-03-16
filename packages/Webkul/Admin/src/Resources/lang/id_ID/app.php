@@ -1341,6 +1341,7 @@ return [
                     'download-error-report'   => 'Unduh Laporan Lengkap',
                     'download-created-file'   => 'Unduh File yang Dibuat',
                     'edit-btn'                => 'Edit',
+                    'export-completed-success' => 'Ekspor berhasil diselesaikan',
                     'exported-info'           => 'Selamat!Ekspor Anda berhasil.',
                     'exporting-info'          => 'Ekspor dalam proses',
                     'export-now'              => 'Ekspor sekarang',

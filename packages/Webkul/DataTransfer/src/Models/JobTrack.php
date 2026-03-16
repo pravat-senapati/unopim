@@ -76,4 +76,14 @@ class JobTrack extends Model implements JobTrackContract
     {
         return $this->belongsTo(JobInstancesProxy::modelClass(), 'job_instances_id', 'id');
     }
+
+    /**
+     * Get the warnings for the job track.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function warnings()
+    {
+        return $this->hasMany(JobWarningProxy::modelClass());
+    }
 }

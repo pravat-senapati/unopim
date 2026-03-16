@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => '完全なレポートをダウンロード',
                     'download-created-file'   => '作成されたファイルをダウンロード',
                     'edit-btn'                => '編集',
+                    'export-completed-success' => 'エクスポートが完了しました',
                     'exported-info'           => 'おめでとうございます。エクスポートが成功しました。',
                     'exporting-info'          => 'エクスポート中',
                     'export-now'              => '今すぐエクスポート',

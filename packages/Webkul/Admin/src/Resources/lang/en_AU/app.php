@@ -1342,6 +1342,7 @@ return [
                     'download-created-file'   => 'Download Exported Files',
                     'edit-btn'                => 'Edit',
                     'exported-info'           => 'Congratulations! Your export was successful.',
+                    'export-completed-success' => 'Export completed successfully',
                     'exporting-info'          => 'Export In Process',
                     'export-now'              => 'Export Now',
                     'indexing-info'           => 'Resources Indexing (Price, Elastic Search) In Progress',

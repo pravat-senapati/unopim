@@ -1325,6 +1325,7 @@ return [
                     'completed-batches'       => 'कुल बैच पूरा:',
                     'download-error-report'   => 'पूरी रिपोर्ट डाउनलोड करें',
                     'edit-btn'                => 'संपादन करना',
+                    'export-completed-success' => 'निर्यात सफलतापूर्वक पूर्ण',
                     'exported-info'           => 'बधाई हो!आपका निर्यात सफल रहा।',
                     'exporting-info'          => 'प्रक्रिया में निर्यात',
                     'export-now'              => 'अब निर्यात करें',

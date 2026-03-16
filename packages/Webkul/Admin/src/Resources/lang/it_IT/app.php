@@ -1343,6 +1343,7 @@ return [
                     'download-error-report'   => 'Scarica rapporto completo degli errori',
                     'download-created-file'   => 'Scarica file esportato',
                     'edit-btn'                => 'Modifica',
+                    'export-completed-success' => 'Esportazione completata con successo',
                     'exported-info'           => 'Congratulazioni! La tua esportazione è riuscita.',
                     'exporting-info'          => 'Esportazione in corso',
                     'export-now'              => 'Esporta ora',

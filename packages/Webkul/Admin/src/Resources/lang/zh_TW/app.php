@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => '下載錯誤報告',
                     'download-created-file'   => '下載匯出檔案',
                     'edit-btn'                => '編輯',
+                    'export-completed-success' => '匯出成功完成',
                     'exported-info'           => '恭喜！您的匯出已成功完成。',
                     'exporting-info'          => '匯出處理中',
                     'export-now'              => '立即匯出',

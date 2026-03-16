@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => 'Last ned full rapport',
                     'download-created-file'   => 'Last ned eksporterte filer',
                     'edit-btn'                => 'Rediger',
+                    'export-completed-success' => 'Eksport fullført vellykket',
                     'exported-info'           => 'Gratulerer! Eksporten din ble fullført.',
                     'exporting-info'          => 'Eksport pågår',
                     'export-now'              => 'Eksporter nå',

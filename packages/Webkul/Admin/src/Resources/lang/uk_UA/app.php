@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => 'Завантажити звіт про помилки',
                     'download-created-file'   => 'Завантажити експортовані файли',
                     'edit-btn'                => 'Редагувати',
+                    'export-completed-success' => 'Експорт успішно завершено',
                     'exported-info'           => 'Вітаємо! Ваш експорт успішно завершено.',
                     'exporting-info'          => 'Експорт в процесі',
                     'export-now'              => 'Експортувати зараз',

@@ -1323,6 +1323,7 @@ return [
                     'completed-batches'       => 'Общее количество партий завершено:',
                     'download-error-report'   => 'Скачать полный отчет',
                     'edit-btn'                => 'Редактировать',
+                    'export-completed-success' => 'Экспорт успешно завершен',
                     'exported-info'           => 'Поздравляю!Ваш экспорт был успешным.',
                     'exporting-info'          => 'Экспорт в процессе',
                     'export-now'              => 'Экспорт сейчас',

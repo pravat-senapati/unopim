@@ -10,5 +10,6 @@ class ModuleServiceProvider extends CoreModuleServiceProvider
         \Webkul\DataTransfer\Models\JobInstances::class,
         \Webkul\DataTransfer\Models\JobTrackBatch::class,
         \Webkul\DataTransfer\Models\JobTrack::class,
+        \Webkul\DataTransfer\Models\JobWarning::class,
     ];
 }

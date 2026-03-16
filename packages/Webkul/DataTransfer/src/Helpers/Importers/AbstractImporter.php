@@ -15,6 +15,7 @@ use Webkul\DataTransfer\Jobs\Import\Indexing as IndexingJob;
 use Webkul\DataTransfer\Jobs\Import\LinkBatch as LinkBatchJob;
 use Webkul\DataTransfer\Jobs\Import\Linking as LinkingJob;
 use Webkul\DataTransfer\Repositories\JobTrackBatchRepository as ImportJobBatchRepository;
+use Webkul\DataTransfer\Repositories\JobWarningRepository;
 
 abstract class AbstractImporter
 {
@@ -149,7 +150,10 @@ abstract class AbstractImporter
      *
      * @return void
      */
-    public function __construct(protected ImportJobBatchRepository $importBatchRepository) {}
+    public function __construct(
+        protected ImportJobBatchRepository $importBatchRepository,
+        protected ?JobWarningRepository $jobWarningReporitory = null,
+    ) {}
 
     /**
      * Validate data row
@@ -191,6 +195,31 @@ abstract class AbstractImporter
         $this->source = $source;
 
         return $this;
+    }
+
+    /**
+     * Store warning in JobWarning table for UI display
+     * Each product SKU stores its own list of warnings with key-value pairs
+     *
+     * @param  string|array  $reason  Warning message(s)
+     * @param  array  $item  Key-value pairs (e.g., ['sku' => 'ABC123', 'attribute_code' => 'name'])
+     * @return void
+     */
+    public function storeWarning(string|array $reason, array $item = []): void
+    {
+        // Normalize reason to array
+        $reasons = is_array($reason) ? $reason : [$reason];
+
+        // Store each reason as a separate warning record
+        if ($this->jobWarningReporitory) {
+            foreach ($reasons as $reasonMessage) {
+                $this->jobWarningReporitory->create([
+                    'job_track_id' => $this->import->id,
+                    'reason'       => $reasonMessage,
+                    'item'         => $item,
+                ]);
+            }
+        }
     }
 
     /**

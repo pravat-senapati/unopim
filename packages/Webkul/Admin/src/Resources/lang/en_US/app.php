@@ -1161,6 +1161,7 @@ return [
                 'records-deleted'       => 'Records deleted',
                 'run-again'             => 'Run Again',
                 'completed-success'     => 'import completed successfully',
+                'export-completed-success'     => 'Export completed successfully',
                 'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
                 'create-success'        => 'Export created successfully.',
                 'delete-failed'         => 'Export deletion failed unexpectedly.',
@@ -1188,6 +1189,12 @@ return [
                 'linking-progress'      => 'Linking progress',
                 'indexing-progress'     => 'Indexing progress',
                 'job-label'             => 'Job',
+                'warnings'              => 'Warnings',
+                'display-item'          => 'Display item',
+                'affected-items'        => 'Affected items',
+                'warnings-description'   => 'The following products have warnings during export. Click on a product to see the details.',
+                'warnings-count'        => 'warnings',
+                'warnings-for-product'  => 'Warnings for this product:',
             ],
 
             'imports' => [
@@ -1433,6 +1440,7 @@ return [
                     'download-created-file'   => 'Download Exported Files',
                     'edit-btn'                => 'Edit',
                     'exported-info'           => 'Congratulations! Your export was successful.',
+                    'export-completed-success' => 'Export completed successfully',
                     'exporting-info'          => 'Export In Process',
                     'export-now'              => 'Export Now',
                     'indexing-info'           => 'Resources Indexing (Price, Elastic Search) In Progress',

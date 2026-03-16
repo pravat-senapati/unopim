@@ -1338,6 +1338,7 @@ return [
                     'download-error-report'   => 'Ladda Ner Fullständig Rapport',
                     'download-created-file'   => 'Ladda Ner Exporterade Filer',
                     'edit-btn'                => 'Redigera',
+                    'export-completed-success' => 'Export slutförd framgångsrikt',
                     'exported-info'           => 'Grattis! Din export lyckades.',
                     'exporting-info'          => 'Export pågår',
                     'export-now'              => 'Exportera Nu',

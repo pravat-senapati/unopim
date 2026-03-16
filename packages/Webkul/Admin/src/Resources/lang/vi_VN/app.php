@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => 'Tải báo cáo lỗi',
                     'download-created-file'   => 'Tải tệp xuất khẩu',
                     'edit-btn'                => 'Chỉnh sửa',
+                    'export-completed-success' => 'Xuất khẩu hoàn thành thành công',
                     'exported-info'           => 'Chúc mừng! Xuất khẩu của bạn đã thành công.',
                     'exporting-info'          => 'Xuất khẩu đang được xử lý',
                     'export-now'              => 'Xuất khẩu ngay',

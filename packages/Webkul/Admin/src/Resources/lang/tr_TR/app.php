@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => 'Tam Raporu İndir',
                     'download-created-file'   => 'İhracat Edilen Dosyayı İndir',
                     'edit-btn'                => 'Düzenle',
+                    'export-completed-success' => 'Dışa aktarma başarıyla tamamlandı',
                     'exported-info'           => 'Tebrikler! İhracatınız başarılı.',
                     'exporting-info'          => 'İhracat İşlemde',
                     'export-now'              => 'İhracat Yap',

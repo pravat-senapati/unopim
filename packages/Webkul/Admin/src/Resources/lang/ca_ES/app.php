@@ -1346,6 +1346,7 @@ return [
                     'download-error-report'   => 'Descarregar Informe Complet',
                     'download-created-file'   => 'Descarregar Fitxers Exportats',
                     'edit-btn'                => 'Editar',
+                    'export-completed-success' => 'Exportació completada amb èxit',
                     'exported-info'           => 'Enhorabona! La teva exportació s’ha completat amb èxit.',
                     'exporting-info'          => 'Exportació en Procés',
                     'export-now'              => 'Exportar Ara',

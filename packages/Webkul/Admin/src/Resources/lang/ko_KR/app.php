@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => '전체 오류 보고서 다운로드',
                     'download-created-file'   => '생성된 파일 다운로드',
                     'edit-btn'                => '편집',
+                    'export-completed-success' => '내보내기가 완료되었습니다',
                     'exported-info'           => '축하합니다! 내보내기가 성공했습니다.',
                     'exporting-info'          => '내보내기 진행 중',
                     'export-now'              => '지금 내보내기',

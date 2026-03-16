@@ -1325,6 +1325,7 @@ return [
                     'completed-batches'       => 'Нийт багц дууссан:',
                     'download-error-report'   => 'Бүрэн тайланг татаж авах',
                     'edit-btn'                => 'Хянан засварлах / хэвлэлд бэлтгэх',
+                    'export-completed-success' => 'Экспорт амжилттай дууслаа',
                     'exported-info'           => 'Баяр хүргэе!Таны экспорт амжилттай болсон.',
                     'exporting-info'          => 'Процесс дээр экспортлох',
                     'export-now'              => 'Одоо экспортлох',

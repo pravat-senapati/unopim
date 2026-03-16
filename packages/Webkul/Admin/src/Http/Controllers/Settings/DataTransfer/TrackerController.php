@@ -10,6 +10,7 @@ use Webkul\DataTransfer\Helpers\Import;
 use Webkul\DataTransfer\Repositories\JobInstancesRepository;
 use Webkul\DataTransfer\Repositories\JobTrackRepository;
 use Webkul\DataTransfer\Services\JobLogger;
+use Webkul\DataTransfer\Repositories\JobWarningRepository;
 use ZipArchive;
 
 class TrackerController extends Controller
@@ -23,7 +24,8 @@ class TrackerController extends Controller
         protected JobInstancesRepository $jobInstancesRepository,
         protected JobTrackRepository $jobTrackRepository,
         protected Import $importHelper,
-        protected Export $exportHelper
+        protected Export $exportHelper,
+        protected JobWarningRepository $jobWarningReporitory
     ) {}
 
     /**
@@ -66,13 +68,47 @@ class TrackerController extends Controller
             $stats = $this->importHelper->stats($batchState);
         }
 
+        // Get warnings with their affected items for display
+        $warnings = $this->getWarningsWithItems($import);
+
         return view('admin::settings.data-transfer.tracker.import', compact(
             'import',
             'isValid',
             'stats',
             'jobInstance',
             'summary',
+            'warnings',
         ));
+    }
+
+    /**
+     * Get warnings with their affected items from the job track.
+     * Each product SKU stores its own list of warnings.
+     *
+     * @param  \Webkul\DataTransfer\Models\JobTrack  $import
+     * @return array
+     */
+    protected function getWarningsWithItems($import): array
+    {
+        $warnings = [];
+
+        // First try to get warnings from the new job_warnings table
+        $jobWarnings = $this->jobWarningReporitory->getWarningsByJobTrackId($import->id);
+        if ($jobWarnings->isNotEmpty()) {
+            // Each warning is displayed individually with its own reason and item
+            foreach ($jobWarnings as $warning) {
+                $item = $warning->item ?? [];
+                // dd($item);
+                $warnings[] = [
+                    'id'       => $warning->id,
+                    'reason'   => $warning->reason,
+                    'item'     => $item,
+                ];
+            }
+
+        }
+
+        return $warnings;
     }
 
     /**
@@ -116,6 +152,20 @@ class TrackerController extends Controller
         $import = $this->jobTrackRepository->findOrFail($id);
 
         return Storage::disk('public')->download($import->file_path);
+    }
+
+    /**
+     * Get warnings for a job track in real-time
+     */
+    public function getWarnings(int $id)
+    {
+        $import = $this->jobTrackRepository->findOrFail($id);
+
+        $warnings = $this->getWarningsWithItems($import);
+
+        return response()->json([
+            'warnings' => $warnings,
+        ]);
     }
 
     /**

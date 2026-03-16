@@ -1341,6 +1341,7 @@ return [
                     'download-error-report'   => '下载完整报告',
                     'download-created-file'   => '下载创建的文件',
                     'edit-btn'                => '编辑',
+                    'export-completed-success' => '导出成功完成',
                     'exported-info'           => '恭喜！您的出口成功。',
                     'exporting-info'          => '流程导出',
                     'export-now'              => '现在出口',

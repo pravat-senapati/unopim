@@ -1325,6 +1325,7 @@ return [
                     'completed-batches'       => 'Totale batches voltooid:',
                     'download-error-report'   => 'Download het volledige rapport',
                     'edit-btn'                => 'Bewerking',
+                    'export-completed-success' => 'Export succesvol voltooid',
                     'exported-info'           => 'Gefeliciteerd!Uw export was succesvol.',
                     'exporting-info'          => 'Exporteren in proces',
                     'export-now'              => 'Exporteren nu',

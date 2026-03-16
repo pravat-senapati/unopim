@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => 'Descarcă Raportul Complet',
                     'download-created-file'   => 'Descarcă Fișiere Exportate',
                     'edit-btn'                => 'Editează',
+                    'export-completed-success' => 'Export finalizat cu succes',
                     'exported-info'           => 'Felicitări! Exportul tău a fost realizat cu succes.',
                     'exporting-info'          => 'Export în curs',
                     'export-now'              => 'Exportă Acum',

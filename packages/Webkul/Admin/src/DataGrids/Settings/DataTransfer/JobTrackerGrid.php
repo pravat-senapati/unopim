@@ -28,6 +28,7 @@ class JobTrackerGrid extends DataGrid
         $queryBuilder = DB::table('job_track')
             ->leftJoin('job_instances as job', 'job.id', '=', 'job_track.job_instances_id')
             ->leftJoin('admins', 'admins.id', '=', 'job_track.user_id')
+            ->leftJoin('job_warnings', 'job_warnings.job_track_id', '=', 'job_track.id')
             ->addSelect(
                 'job_track.id',
                 'job.code as job_code',
@@ -43,6 +44,8 @@ class JobTrackerGrid extends DataGrid
                 'admins.name as user',
                 'job_track.created_at',
                 'job_track.updated_at',
+                'errors',
+                'job_warnings.job_track_id as warning'
             );
 
         $this->addFilter('id', 'job_track.id');
@@ -105,7 +108,7 @@ class JobTrackerGrid extends DataGrid
             'searchable' => false,
             'filterable' => true,
             'sortable'   => true,
-            'closure'    => function ($row) {
+            'closure'    => function ($row) { 
                 switch ($row->state) {
                     case Import::STATE_PENDING:
                         return '<p class="label-pending">'.trans('admin::app.settings.data-transfer.tracker.index.datagrid.pending').'</p>';
@@ -135,7 +138,9 @@ class JobTrackerGrid extends DataGrid
                         return '<p class="label-processing">'.trans('admin::app.settings.data-transfer.tracker.index.datagrid.indexed').'</p>';
 
                     case Import::STATE_COMPLETED:
-                        return '<p class="label-completed">'.trans('admin::app.settings.data-transfer.tracker.index.datagrid.completed').'</p>';
+                        return '<p class="'.($row->warning ? 'label-completed bg-yellow-500' : 'label-completed').'">'
+                            . trans('admin::app.settings.data-transfer.tracker.index.datagrid.completed') .
+                            '</p>';
 
                     case Import::STATE_PAUSED:
                         return '<p class="label-pending">'.trans('admin::app.settings.data-transfer.tracker.index.datagrid.paused').'</p>';

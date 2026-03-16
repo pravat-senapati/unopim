@@ -1338,6 +1338,7 @@ return [
                     'download-error-report'   => 'I-download ang Kumpletong Ulat',
                     'download-created-file'   => 'I-download ang Mga In-export na File',
                     'edit-btn'                => 'I-edit',
+                    'export-completed-success' => 'Matagumpay ang export',
                     'exported-info'           => 'Binabati kita! Matagumpay ang iyong export.',
                     'exporting-info'          => 'Nasa Proseso ng Export',
                     'export-now'              => 'Export Ngayon',

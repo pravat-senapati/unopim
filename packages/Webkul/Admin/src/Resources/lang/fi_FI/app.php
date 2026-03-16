@@ -1343,6 +1343,7 @@ return [
                     'download-error-report'   => 'Lataa virheraportti',
                     'download-created-file'   => 'Lataa viety tiedosto',
                     'edit-btn'                => 'Muokkaa',
+                    'export-completed-success' => 'Vienti valmis onnistuneesti',
                     'exported-info'           => 'Onnittelut! Vienti onnistui.',
                     'exporting-info'          => 'Vienti käynnissä',
                     'export-now'              => 'Vie nyt',

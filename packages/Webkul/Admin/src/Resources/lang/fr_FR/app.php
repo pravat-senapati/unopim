@@ -1336,6 +1336,7 @@ return [
                     'download-error-report'   => 'Télécharger le rapport complet',
                     'download-created-file'   => 'Télécharger le fichier',
                     'edit-btn'                => 'Modifier',
+                    'export-completed-success' => 'Exportation terminée avec succès',
                     'exported-info'           => 'Félicitations ! L\'export a été exécuté avec succès.',
                     'exporting-info'          => 'Export en cours',
                     'export-now'              => 'Exporter maintenant',

@@ -1344,6 +1344,7 @@ return [
                     'download-error-report'   => 'Preuzmi izvještaj o pogreškama',
                     'download-created-file'   => 'Preuzmi stvoreni datoteku',
                     'edit-btn'                => 'Uredi',
+                    'export-completed-success' => 'Izvoz uspješno završen',
                     'exported-info'           => 'Čestitamo! Izvoz je uspješan.',
                     'exporting-info'          => 'Izvoz u tijeku',
                     'export-now'              => 'Izvezi sada',

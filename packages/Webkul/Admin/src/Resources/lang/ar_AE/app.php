@@ -1327,6 +1327,7 @@ return [
                     'download-error-report'   => 'قم بتنزيل التقرير الكامل',
                     'edit-btn'                => 'يحرر',
                     'exported-info'           => 'تهانينا!كان تصديرك ناجحًا.',
+                    'export-completed-success' => 'اكتمل التصدير بنجاح',
                     'exporting-info'          => 'التصدير في العملية',
                     'export-now'              => 'التصدير الآن',
                     'indexing-info'           => 'فهرسة الموارد (السعر ، البحث المرن) قيد التقدم',
