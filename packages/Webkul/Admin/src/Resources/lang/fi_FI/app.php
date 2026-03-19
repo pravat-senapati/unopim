@@ -1119,6 +1119,14 @@ return [
                 'update-success'    => 'Vienti päivitettiin onnistuneesti.',
                 'failed-info'       => 'Tehtävä epäonnistui. Korjaa seuraavat virheet ja yritä uudelleen.',
                 'download-log-file' => 'Lataa lokitiedosto',
+                'warning-count'         => 'Varoituksia yhteensä',
+                'found'                 => 'löytyi',
+                'details'               => 'tiedot',
+                'view-details'          => 'Näytä',
+                'warning-details'       => 'Varoituksen tiedot',
+                'no-details'            => 'Ei lisätietoja',
+                'field'                 => 'Kenttä',
+                'value'                 => 'Arvo',
             ],
 
             'imports' => [

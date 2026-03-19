@@ -1119,6 +1119,14 @@ return [
                 'update-success'    => 'Esportazione aggiornata con successo.',
                 'failed-info'       => 'Attività fallita. Correggi gli errori e riprova.',
                 'download-log-file' => 'Scarica Registro',
+                'warning-count'         => 'Totale avvisi',
+                'found'                 => 'trovato',
+                'details'               => 'dettagli',
+                'view-details'          => 'Visualizza',
+                'warning-details'       => 'Dettagli avvisi',
+                'no-details'            => 'Nessun dettaglio aggiuntivo disponibile',
+                'field'                 => 'Campo',
+                'value'                 => 'Valore',
             ],
 
             'import' => [

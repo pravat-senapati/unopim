@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'Xuất khẩu đã được cập nhật thành công.',
                 'failed-info'       => 'Công việc đã thất bại. Vui lòng sửa các lỗi sau và thử lại.',
                 'download-log-file' => 'Tải tệp nhật ký',
+                'warning-count'         => 'Tổng cảnh báo',
+                'found'                 => 'đã tìm thấy',
+                'details'               => 'chi tiết',
+                'view-details'          => 'Xem',
+                'warning-details'       => 'Chi tiết cảnh báo',
+                'no-details'            => 'Không có chi tiết bổ sung',
+                'field'                 => 'Trường',
+                'value'                 => 'Giá trị',
             ],
 
             'import' => [

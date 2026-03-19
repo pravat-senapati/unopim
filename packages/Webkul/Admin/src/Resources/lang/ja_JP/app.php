@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'エクスポートが正常に更新されました。',
                 'failed-info'       => 'ジョブが失敗しました。次のエラーを修正して再試行してください。',
                 'download-log-file' => 'ダウンロードログ',
+                'warning-count'         => '警告の合計',
+                'found'                 => '発見',
+                'details'               => '詳細',
+                'view-details'          => '表示',
+                'warning-details'       => '警告の詳細',
+                'no-details'            => '追加の詳細はありません',
+                'field'                 => 'フィールド',
+                'value'                 => '値',
             ],
 
             'imports' => [

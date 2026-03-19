@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'Dışa aktarma başarıyla güncellendi.',
                 'failed-info'       => 'Görev başarısız oldu. Lütfen aşağıdaki hataları düzeltip tekrar deneyin.',
                 'download-log-file' => 'Log Dosyasını İndir',
+                'warning-count'         => 'Toplam uyarılar',
+                'found'                 => 'bulundu',
+                'details'               => 'detaylar',
+                'view-details'          => 'Görüntüle',
+                'warning-details'       => 'Uyarı Detayları',
+                'no-details'            => 'Ek detay yok',
+                'field'                 => 'Alan',
+                'value'                 => 'Değer',
             ],
 
             'import' => [

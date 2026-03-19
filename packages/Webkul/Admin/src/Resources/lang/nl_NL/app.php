@@ -1111,6 +1111,14 @@ return [
                 'update-success'    => 'Exporteren met succes bijgewerkt.',
                 'failed-info'       => 'Taak is mislukt. Los de volgende fouten op en probeer het opnieuw.',
                 'download-log-file' => 'Logboek downloaden',
+                'warning-count'         => 'Totaal waarschuwingen',
+                'found'                 => 'gevonden',
+                'details'               => 'details',
+                'view-details'          => 'Bekijken',
+                'warning-details'       => 'Waarschuwingsdetails',
+                'no-details'            => 'Geen aanvullende details beschikbaar',
+                'field'                 => 'Veld',
+                'value'                 => 'Waarde',
             ],
 
             'imports' => [

@@ -1195,6 +1195,14 @@ return [
                 'warnings-description'   => 'The following products have warnings during export. Click on a product to see the details.',
                 'warnings-count'        => 'warnings',
                 'warnings-for-product'  => 'Warnings for this product:',
+                'warning-count'         => 'Total warnings',
+                'found'                 => 'found',
+                'details'               => 'details',
+                'view-details'          => 'View',
+                'warning-details'       => 'Warning Details',
+                'no-details'            => 'No additional details available',
+                'field'                 => 'Field',
+                'value'                 => 'Value',
             ],
 
             'imports' => [

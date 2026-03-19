@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'Izvoz uspješno ažuriran.',
                 'failed-info'       => 'Zadatak nije uspio. Ispravite navedene greške i pokušajte ponovo.',
                 'download-log-file' => 'Preuzmi zapisnik',
+                'warning-count'         => 'Ukupno upozorenja',
+                'found'                 => 'pronađeno',
+                'details'               => 'pojedinosti',
+                'view-details'          => 'Pogledaj',
+                'warning-details'       => 'Pojedinosti upozorenja',
+                'no-details'            => 'Nema dodatnih pojedinosti',
+                'field'                 => 'Polje',
+                'value'                 => 'Vrijednost',
             ],
 
             'import' => [

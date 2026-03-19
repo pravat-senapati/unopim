@@ -1114,6 +1114,14 @@ return [
                 'info'              => 'Félicitations ! La tâche a été exécutée avec succès.',
                 'failed-info'       => 'La tâche a échouée. Veuillez corriger les erreurs et réessayer.',
                 'download-log-file' => 'Télécharger le journal',
+                'warning-count'         => 'Total des avertissements',
+                'found'                 => 'trouvé',
+                'details'               => 'détails',
+                'view-details'          => 'Voir',
+                'warning-details'       => 'Détails des avertissements',
+                'no-details'            => 'Aucun détail supplémentaire disponible',
+                'field'                 => 'Champ',
+                'value'                 => 'Valeur',
             ],
 
             'imports' => [

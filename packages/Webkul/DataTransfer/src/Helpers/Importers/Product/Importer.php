@@ -33,6 +33,7 @@ use Webkul\ElasticSearch\Observers\Product as ElasticProductObserver;
 use Webkul\Product\Models\Product as ProductModel;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Product\Type\AbstractType;
+use Webkul\DataTransfer\Repositories\JobWarningRepository;
 
 class Importer extends AbstractImporter
 {
@@ -284,8 +285,9 @@ class Importer extends AbstractImporter
         protected SKUStorage $skuStorage,
         protected ChannelRepository $channelRepository,
         protected FieldProcessor $fieldProcessor,
+        protected JobWarningRepository $jobWarningReporitory,
     ) {
-        parent::__construct($importBatchRepository);
+        parent::__construct($importBatchRepository, $jobWarningReporitory);
 
         $this->initAttributes();
     }

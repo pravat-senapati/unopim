@@ -1114,6 +1114,14 @@ return [
                 'update-success'    => 'Export uppdaterades framgångsrikt.',
                 'failed-info'       => 'Jobbet misslyckades. Korrigera följande fel och försök igen.',
                 'download-log-file' => 'Ladda ner Loggfil',
+                'warning-count'         => 'Totalt antal varningar',
+                'found'                 => 'hittades',
+                'details'               => 'detaljer',
+                'view-details'          => 'Visa',
+                'warning-details'       => 'Varningsdetaljer',
+                'no-details'            => 'Inga ytterligare detaljer tillgängliga',
+                'field'                 => 'Fält',
+                'value'                 => 'Värde',
             ],
 
             'import' => [

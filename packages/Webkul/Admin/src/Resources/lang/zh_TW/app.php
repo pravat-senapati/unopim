@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => '導出已成功更新。',
                 'failed-info'       => '工作失敗。請修正以下錯誤並重新嘗試。',
                 'download-log-file' => '下載日誌文件',
+                'warning-count'         => '警告總數',
+                'found'                 => '找到',
+                'details'               => '詳情',
+                'view-details'          => '查看',
+                'warning-details'       => '警告詳情',
+                'no-details'            => '沒有其他詳細信息',
+                'field'                 => '欄位',
+                'value'                 => '值',
             ],
 
             'import' => [

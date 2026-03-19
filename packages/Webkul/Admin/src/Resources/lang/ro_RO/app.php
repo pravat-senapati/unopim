@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'Export actualizat cu succes.',
                 'failed-info'       => 'Sarcina a eșuat. Vă rugăm să corectați erorile și să încercați din nou.',
                 'download-log-file' => 'Descarcă Jurnal',
+                'warning-count'         => 'Total avertismente',
+                'found'                 => 'găsit',
+                'details'               => 'detalii',
+                'view-details'          => 'Vezi',
+                'warning-details'       => 'Detalii avertisment',
+                'no-details'            => 'Nu există detalii suplimentare',
+                'field'                 => 'Câmp',
+                'value'                 => 'Valoare',
             ],
 
             'import' => [

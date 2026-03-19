@@ -1121,6 +1121,14 @@ return [
                 'update-success'    => 'Eksport opdateret med succes.',
                 'failed-info'       => 'Jobbet mislykkedes. Ret følgende fejl og prøv igen.',
                 'download-log-file' => 'Download log',
+                'warning-count'         => 'Samlet advarsler',
+                'found'                 => 'fundet',
+                'details'               => 'detaljer',
+                'view-details'          => 'Se',
+                'warning-details'       => 'Advarselsdetaljer',
+                'no-details'            => 'Ingen yderligere detaljer tilgængelige',
+                'field'                 => 'Felt',
+                'value'                 => 'Værdi',
             ],
 
             'imports' => [

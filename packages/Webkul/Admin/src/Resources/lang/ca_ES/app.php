@@ -1122,6 +1122,14 @@ return [
                 'update-success'    => 'Exportació actualitzada amb èxit.',
                 'failed-info'       => 'La tasca ha fallat. Corregeix els errors següents i torna-ho a intentar.',
                 'download-log-file' => 'Descarregar registre',
+                'warning-count'         => "Total d'advertiments",
+                'found'                 => 'trobat',
+                'details'               => 'detalls',
+                'view-details'          => 'Veure',
+                'warning-details'       => "Detalls de l'advertiment",
+                'no-details'            => 'No hi ha detalls addicionals',
+                'field'                 => 'Camp',
+                'value'                 => 'Valor',
             ],
 
             'imports' => [

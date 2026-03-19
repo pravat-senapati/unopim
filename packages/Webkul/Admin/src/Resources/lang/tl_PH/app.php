@@ -1114,6 +1114,14 @@ return [
                 'update-success'    => 'Matagumpay na na-update ang pag-export.',
                 'failed-info'       => 'Nabigo ang trabaho. Pakitama ang mga sumusunod na error at subukang muli.',
                 'download-log-file' => 'I-download ang Log File',
+                'warning-count'         => 'Kabuuang mga babala',
+                'found'                 => 'nakita',
+                'details'               => 'mga detalye',
+                'view-details'          => 'Tingnan',
+                'warning-details'       => 'Mga detalye ng babala',
+                'no-details'            => 'Walang karagdagang mga detalye',
+                'field'                 => 'Patlang',
+                'value'                 => 'Halaga',
             ],
 
             'import' => [

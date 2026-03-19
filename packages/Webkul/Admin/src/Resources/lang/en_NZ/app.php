@@ -1119,6 +1119,14 @@ return [
                 'update-success'    => 'Export updated successfully.',
                 'failed-info'       => 'Job has failed. Please fix the following errors and try again.',
                 'download-log-file' => 'Download log',
+                'warning-count'         => 'Total warnings',
+                'found'                 => 'found',
+                'details'               => 'details',
+                'view-details'          => 'View',
+                'warning-details'       => 'Warning Details',
+                'no-details'            => 'No additional details available',
+                'field'                 => 'Field',
+                'value'                 => 'Value',
             ],
 
             'imports' => [

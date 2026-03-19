@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'Exportação atualizada com sucesso.',
                 'failed-info'       => 'A tarefa falhou. Por favor, corrija os erros e tente novamente.',
                 'download-log-file' => 'Descarregar Registo',
+                'warning-count'         => 'Total de avisos',
+                'found'                 => 'encontrado',
+                'details'               => 'detalhes',
+                'view-details'          => 'Ver',
+                'warning-details'       => 'Detalhes do aviso',
+                'no-details'            => 'Nenhum detalhe adicional disponível',
+                'field'                 => 'Campo',
+                'value'                 => 'Valor',
             ],
 
             'import' => [

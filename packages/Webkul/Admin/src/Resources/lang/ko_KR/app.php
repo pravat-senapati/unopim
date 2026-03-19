@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => '내보내기가 성공적으로 업데이트되었습니다.',
                 'failed-info'       => '작업에 실패했습니다. 아래 오류를 수정한 후 다시 시도하세요.',
                 'download-log-file' => '로그 다운로드',
+                'warning-count'         => '총 경고',
+                'found'                 => '찾음',
+                'details'               => '세부정보',
+                'view-details'          => '보기',
+                'warning-details'       => '경고 세부정보',
+                'no-details'            => '추가 세부정보 없음',
+                'field'                 => '필드',
+                'value'                 => '값',
             ],
 
             'import' => [

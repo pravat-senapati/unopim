@@ -11,6 +11,7 @@ use Webkul\DataTransfer\Helpers\Exporters\AbstractExporter;
 use Webkul\DataTransfer\Helpers\Formatters\EscapeFormulaOperators;
 use Webkul\DataTransfer\Jobs\Export\File\FlatItemBuffer as FileExportFileBuffer;
 use Webkul\DataTransfer\Repositories\JobTrackBatchRepository;
+use Webkul\DataTransfer\Repositories\JobWarningRepository;
 
 class Exporter extends AbstractExporter
 {
@@ -28,8 +29,9 @@ class Exporter extends AbstractExporter
         protected JobTrackBatchRepository $exportBatchRepository,
         protected FileExportFileBuffer $exportFileBuffer,
         protected CategoryFieldRepository $categoryFieldRepository,
+        protected JobWarningRepository $jobWarningReporitory,
     ) {
-        parent::__construct($exportBatchRepository, $exportFileBuffer);
+        parent::__construct($exportBatchRepository, $exportFileBuffer, $jobWarningReporitory);
     }
 
     /**

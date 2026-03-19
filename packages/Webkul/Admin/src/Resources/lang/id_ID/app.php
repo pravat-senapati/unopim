@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'Ekspor berhasil diperbarui.',
                 'failed-info'       => 'Pekerjaan gagal. Harap perbaiki kesalahan berikut dan coba lagi.',
                 'download-log-file' => 'Unduh log',
+                'warning-count'         => 'Total peringatan',
+                'found'                 => 'ditemukan',
+                'details'               => 'detail',
+                'view-details'          => 'Lihat',
+                'warning-details'       => 'Detail peringatan',
+                'no-details'            => 'Tidak ada detail tambahan',
+                'field'                 => 'Bidang',
+                'value'                 => 'Nilai',
             ],
 
             'imports' => [

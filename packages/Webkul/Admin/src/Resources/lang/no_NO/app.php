@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'Eksport ble oppdatert vellykket.',
                 'failed-info'       => 'Jobben mislyktes. Fiks følgende feil og prøv igjen.',
                 'download-log-file' => 'Last Ned Loggfil',
+                'warning-count'         => 'Totalt antall advarsler',
+                'found'                 => 'funnet',
+                'details'               => 'detaljer',
+                'view-details'          => 'Se',
+                'warning-details'       => 'Advarselsdetaljer',
+                'no-details'            => 'Ingen flere detaljer tilgjengelig',
+                'field'                 => 'Felt',
+                'value'                 => 'Verdi',
             ],
 
             'import' => [

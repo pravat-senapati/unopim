@@ -19,6 +19,7 @@ use Webkul\DataTransfer\Helpers\Importers\AbstractImporter;
 use Webkul\DataTransfer\Helpers\Importers\FieldProcessor;
 use Webkul\DataTransfer\Repositories\JobTrackBatchRepository;
 use Webkul\DataTransfer\Validators\Import\CategoryRulesExtractor;
+use Webkul\DataTransfer\Repositories\JobWarningRepository;
 
 class Importer extends AbstractImporter
 {
@@ -123,9 +124,10 @@ class Importer extends AbstractImporter
         protected LocaleRepository $localeRepository,
         protected ChannelRepository $channelRepository,
         protected CategoryRulesExtractor $categoryRulesExtractor,
-        protected FieldProcessor $fieldProcessor
+        protected FieldProcessor $fieldProcessor,
+        protected JobWarningRepository $jobWarningReporitory,
     ) {
-        parent::__construct($importBatchRepository);
+        parent::__construct($importBatchRepository, $jobWarningReporitory);
 
         $this->initLocales();
     }

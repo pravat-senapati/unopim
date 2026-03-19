@@ -1121,6 +1121,14 @@ return [
                 'update-success'    => 'Export erfolgreich aktualisiert.',
                 'failed-info'       => 'Auftrag ist fehlgeschlagen. Bitte beheben Sie die folgenden Fehler und versuchen Sie es erneut.',
                 'download-log-file' => 'Protokoll herunterladen',
+                'warning-count'         => 'Gesamte Warnungen',
+                'found'                 => 'gefunden',
+                'details'               => 'Details',
+                'view-details'          => 'Ansehen',
+                'warning-details'       => 'Warnungsdetails',
+                'no-details'            => 'Keine zusätzlichen Details verfügbar',
+                'field'                 => 'Feld',
+                'value'                 => 'Wert',
             ],
 
             'imports' => [

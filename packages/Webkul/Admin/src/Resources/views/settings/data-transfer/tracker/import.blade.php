@@ -360,56 +360,44 @@
                         </div>
                     </div>
 
-                    <!-- Warnings Section with Display Item - Per Product SKU Format -->
-                    <div class="rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 mb-4" v-if="warnings?.length">
-                        <div class="flex items-start gap-3">
-                            <svg class="w-5 h-5 mt-0.5 text-amber-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            <div class="flex-1">
-                                <p class="font-semibold text-amber-800 dark:text-amber-300 mb-2">
-                                    @lang('admin::app.settings.data-transfer.tracker.warnings')
-                                </p>
-
-
-                                <!-- List of product SKUs with warnings -->
-                                <div class="space-y-2">
-                                    <div v-for="(warning, index) in warnings" :key="index" class="border border-amber-200 dark:border-amber-700 rounded-lg overflow-hidden">
-                                        <!-- Warning Header - Clickable to expand -->
-                                        <button
-                                            @click="toggleWarningItems(index)"
-                                            class="w-full flex items-center justify-between p-3 bg-amber-100 dark:bg-amber-800/50 hover:bg-amber-200 dark:hover:bg-amber-800 transition-colors">
-                                            <div class="flex items-center gap-2">
-                                                <svg
-                                                    class="w-4 h-4 text-amber-600 dark:text-amber-400"
-                                                    :style="{ 'transform': expandedWarningIndex === index ? 'rotate(90deg)' : 'rotate(0deg)', 'transition': 'transform 0.2s ease-in-out' }"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                                <span class="font-medium text-amber-900 dark:text-amber-200">
-                                                    @{{ warning.reason || warning.sku }}
-                                                </span>
-                                            </div>
-                                        </button>
-
-                                        <!-- Expanded view: Show key-value pairs from item field -->
-                                        <div v-if="expandedWarningIndex === index" class="bg-white dark:bg-cherry-900 p-3">
-                                            <!-- Display key-value pairs from item field -->
-                                            <div v-if="warning.item && Object.keys(warning.item).length > 0" class="space-y-2">
-                                                <p class="text-xs text-amber-600 dark:text-amber-400 mb-1 font-medium">Details:</p>
-                                                <div v-for="(value, key) in warning.item" :key="key" class="flex justify-between text-sm border-b border-amber-100 dark:border-amber-800 pb-1 last:border-b-0 last:pb-0">
-                                                    <span class="text-amber-600 dark:text-amber-400">@{{ key }}</span>
-                                                    <span class="text-amber-900 dark:text-amber-200 font-medium">@{{ value }}</span>
-                                                </div>
-                                            </div>
-                                            <div v-else class="text-sm text-amber-600 dark:text-amber-400">
-                                                No additional details available.
-                                            </div>
+                    <!-- ==================== WARNINGS SECTION - REDESIGNED ==================== -->
+                    <div class="mb-6" v-if="warnings?.length">
+                        <!-- Warning Header Card -->
+                        <div class="relative overflow-hidden rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/20 border border-amber-200 dark:border-amber-700/50 mb-4">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-100/50 dark:bg-amber-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div class="absolute bottom-0 left-0 w-24 h-24 bg-orange-100/50 dark:bg-orange-500/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                            
+                            <div class="relative p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-800/40 flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-200">
+                                                @lang('admin::app.settings.data-transfer.tracker.warnings')
+                                            </h3>
+                                            <p class="text-sm text-amber-600 dark:text-amber-400">
+                                                {{ trans('admin::app.settings.data-transfer.tracker.warning-count') }}: @{{ warnings.length }}
+                                            </p>
                                         </div>
                                     </div>
+                                    
+                                    <!-- Warning Badge -->
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-700 dark:bg-amber-800/50 dark:text-amber-300">
+                                        <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        @{{ warnings.length }} @lang('admin::app.settings.data-transfer.tracker.found')
+                                    </span>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Warning Items List - Modern Card Design -->
+                        
                     </div>
 
                     <!-- Actions -->
@@ -682,61 +670,154 @@
                         </div>
                     </div>
 
-                    <!-- Warnings Section - Real-time during processing -->
-                    <div class="rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 mb-4" v-if="warnings?.length">
-                        <div class="flex items-start gap-3">
-                            <svg class="w-5 h-5 mt-0.5 text-amber-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            <div class="flex-1">
-                                <p class="font-semibold text-amber-800 dark:text-amber-300 mb-2">
-                                    @lang('admin::app.settings.data-transfer.tracker.warnings')
-                                </p>
+                    <!-- ==================== WARNINGS SECTION - REAL-TIME DURING PROCESSING - REDESIGNED ==================== -->
+                    <div class="mb-6" v-if="warnings?.length">
+                        <!-- Warning Header Card -->
+                        <div class="relative overflow-hidden rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/20 border border-amber-200 dark:border-amber-700/50 mb-4">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-100/50 dark:bg-amber-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div class="absolute bottom-0 left-0 w-24 h-24 bg-orange-100/50 dark:bg-orange-500/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                            
+                            <div class="relative p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-800/40 flex items-center justify-center animate-pulse">
+                                            <svg class="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-200">
+                                                @lang('admin::app.settings.data-transfer.tracker.warnings')
+                                            </h3>
+                                            <p class="text-sm text-amber-600 dark:text-amber-400">
+                                                {{ trans('admin::app.settings.data-transfer.tracker.warning-count') }}: @{{ warnings.length }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Warning Badge with Live Indicator -->
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-700 dark:bg-amber-800/50 dark:text-amber-300">
+                                        <span class="w-2 h-2 rounded-full bg-amber-500 mr-2 animate-pulse"></span>
+                                        @{{ warnings.length }} @lang('admin::app.settings.data-transfer.tracker.found')
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
 
-                                <!-- List of product SKUs with warnings -->
-                                <div class="space-y-2">
-                                    <div v-for="(warning, index) in warnings" :key="index" class="border border-amber-200 dark:border-amber-700 rounded-lg overflow-hidden">
-                                        <!-- SKU Header - Clickable to expand -->
-                                        <button
-                                            @click="toggleWarningItems(index)"
-                                            class="w-full flex items-center justify-between p-3 bg-amber-100 dark:bg-amber-800/50 hover:bg-amber-200 dark:hover:bg-amber-800 transition-colors">
-                                            <div class="flex items-center gap-2">
-                                                <svg
-                                                    class="w-4 h-4 text-amber-600 dark:text-amber-400"
-                                                    :style="{ 'transform': expandedWarningIndex === index ? 'rotate(90deg)' : 'rotate(0deg)', 'transition': 'transform 0.2s ease-in-out' }"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                                <span
-                                                    class="font-medium text-amber-900 dark:text-amber-200 block max-w-[568px] overflow-x-auto whitespace-nowrap">
-                                                    @{{ warning.reason }}
-                                                </span>
+                        <!-- Warning Items List - Modern Card Design -->
+                        <div class="space-y-3">
+                            <div 
+                                v-for="(warning, index) in warnings" 
+                                :key="index" 
+                                class="group relative overflow-hidden rounded-lg border border-amber-200 dark:border-amber-700/50 bg-white dark:bg-cherry-900/50 shadow-sm hover:shadow-md transition-all duration-300"
+                            >
+                                <!-- Left Accent Bar -->
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-400 to-orange-500"></div>
+                                
+                                <!-- Collapsible Header -->
+                                <button
+                                    @click="toggleWarningItems(index)"
+                                    class="w-full flex items-center justify-between p-4 pl-5 hover:bg-amber-50/50 dark:hover:bg-amber-900/20 transition-colors"
+                                >
+                                    <div class="flex items-center gap-3 min-w-0">
+                                        <!-- Expand/Collapse Icon with Animation -->
+                                        <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-800/40 flex items-center justify-center flex-shrink-0">
+                                            <svg 
+                                                class="w-4 h-4 text-amber-600 dark:text-amber-400" 
+                                                :style="{ 'transform': expandedWarningIndex === index ? 'rotate(90deg)' : 'rotate(0deg)', 'transition': 'transform 0.2s ease-in-out' }"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
+                                        <!-- Warning Title/SKU -->
+                                        <div class="min-w-0 max-w-[568px] overflow-x-auto whitespace-nowrap">
+                                            <span class="font-semibold text-gray-800 dark:text-gray-200 truncate">
+                                                @{{ warning.reason }}
+                                            </span>
+                                        </div>
+                                        <span class="text-xs text-gray-500 dark:text-gray-400" v-if="warning.item && Object.keys(warning.item).length">
+                                            @{{ Object.keys(warning.item).length }} @lang('admin::app.settings.data-transfer.tracker.details')
+                                        </span>
+                                    </div>
+                                    
+                                    <!-- Expand Indicator -->
+                                    <div class="flex items-center gap-2 flex-shrink-0 ml-2">
+                                        <span 
+                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-700 dark:bg-amber-800/30 dark:text-amber-400"
+                                            v-if="expandedWarningIndex !== index"
+                                        >
+                                            <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                            @lang('admin::app.settings.data-transfer.tracker.view-details')
+                                        </span>
+                                         
+                                    </div>
+                                </button>
+                                
+                                <!-- Expanded Details Panel -->
+                                <div 
+                                    v-if="expandedWarningIndex === index" 
+                                    class="border-t border-amber-100 dark:border-amber-800/30 bg-amber-50/30 dark:bg-amber-900/10"
+                                >
+                                    <div class="p-4 pl-5">
+                                        <!-- Details Header -->
+                                        <div class="flex items-center gap-2 mb-3">
+                                            <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                            </svg>
+                                            <span class="text-sm font-medium text-amber-700 dark:text-amber-300">
+                                                @lang('admin::app.settings.data-transfer.tracker.warning-details')
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Key-Value Pairs with Scrollable Container -->
+                                        <div v-if="warning.item && Object.keys(warning.item).length > 0" class="bg-white dark:bg-cherry-900 rounded-lg border border-amber-200 dark:border-amber-700/30 overflow-hidden">
+                                            <div class="max-h-64 overflow-y-auto">
+                                                <ul class="divide-y divide-amber-100 dark:divide-amber-800/30">
+                                                    <li 
+                                                        v-for="(warnMsg, warnIndex) in warning.item" 
+                                                        :key="warnIndex"
+                                                        class="p-3 hover:bg-amber-50/50 dark:hover:bg-amber-900/10"
+                                                    >
+                                                        <div class="flex items-start gap-3">
+                                                            <!-- Warning Icon -->
+                                                            <div class="w-6 h-6 rounded-md bg-amber-100 dark:bg-amber-800/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                                <svg class="w-3.5 h-3.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                                                </svg>
+                                                            </div>
+                                                            
+                                                            <div class="flex-1 min-w-0">
+                                                                <!-- Key -->
+                                                                <div class="flex items-center gap-2 mb-1">
+                                                                    <span class="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                                                                        @{{ warnIndex }}
+                                                                    </span>
+                                                                </div>
+                                                                
+                                                                <!-- Value with scrollable/break-word -->
+                                                                <div class="text-sm text-gray-700 dark:text-gray-300">
+                                                                    <div class="break-words whitespace-pre-wrap font-mono text-xs bg-amber-50 dark:bg-amber-900/20 px-3 py-2 rounded-lg border border-amber-100 dark:border-amber-800/30 max-h-32 overflow-y-auto">
+                                                                        @{{ typeof warnMsg === 'object' ? JSON.stringify(warnMsg, null, 2) : warnMsg }}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                        </button>
-
-                                        <!-- Expanded warnings for this SKU -->
-                                        <div v-if="expandedWarningIndex === index" class="bg-white dark:bg-cherry-900 p-3">
-                                            <ul class="space-y-2">
-                                                <li
-                                                    v-for="(warnMsg, warnIndex) in warning.item"
-                                                    :key="warnIndex"
-                                                    class="flex items-start gap-3 text-sm text-amber-700 dark:text-amber-400 py-2 border-b border-amber-200 dark:border-amber-700 last:border-b-0">
-                                                    <!-- Warning Icon -->
-                                                    <svg class="w-4 h-4 mt-1 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                                    </svg>
-
-                                                    <!-- Key -->
-                                                    <div class="min-w-[140px] font-medium text-gray-800 dark:text-gray-200">
-                                                        @{{ warnIndex }}
-                                                    </div>
-
-                                                    <!-- Value -->
-                                                    <div class="flex-1 break-words text-gray-700 dark:text-gray-300">
-                                                        @{{ warnMsg }}
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                        </div>
+                                        
+                                        <!-- Empty State -->
+                                        <div v-else class="text-center py-4">
+                                            <svg class="w-8 h-8 mx-auto text-amber-300 dark:text-amber-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                            </svg>
+                                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                                @lang('admin::app.settings.data-transfer.tracker.no-details')
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -1184,6 +1265,165 @@
                         </div>
                     </div>
 
+                    <!-- ==================== WARNINGS SECTION - COMPLETED STATE ==================== -->
+                    <div class="mb-6" v-if="warnings?.length">
+                        <!-- Warning Header Card -->
+                        <div class="relative overflow-hidden rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/20 border border-amber-200 dark:border-amber-700/50 mb-4">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-100/50 dark:bg-amber-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div class="absolute bottom-0 left-0 w-24 h-24 bg-orange-100/50 dark:bg-orange-500/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                            
+                            <div class="relative p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-800/40 flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-200">
+                                                @lang('admin::app.settings.data-transfer.tracker.warnings')
+                                            </h3>
+                                            <p class="text-sm text-amber-600 dark:text-amber-400">
+                                                {{ trans('admin::app.settings.data-transfer.tracker.warning-count') }}: @{{ warnings.length }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Warning Badge -->
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-700 dark:bg-amber-800/50 dark:text-amber-300">
+                                        <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        @{{ warnings.length }} @lang('admin::app.settings.data-transfer.tracker.found')
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Warning Items List - Modern Card Design -->
+                        <div class="space-y-3">
+                            <div 
+                                v-for="(warning, index) in warnings" 
+                                :key="index" 
+                                class="group relative overflow-hidden rounded-lg border border-amber-200 dark:border-amber-700/50 bg-white dark:bg-cherry-900/50 shadow-sm hover:shadow-md transition-all duration-300"
+                            >
+                                <!-- Left Accent Bar -->
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-400 to-orange-500"></div>
+                                
+                                <!-- Collapsible Header -->
+                                <button
+                                    @click="toggleWarningItems(index)"
+                                    class="w-full flex items-center justify-between p-4 pl-5 hover:bg-amber-50/50 dark:hover:bg-amber-900/20 transition-colors"
+                                >
+                                    <div class="flex items-center gap-3 min-w-0">
+                                        <!-- Expand/Collapse Icon with Animation -->
+                                        <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-800/40 flex items-center justify-center flex-shrink-0">
+                                            <svg 
+                                                class="w-4 h-4 text-amber-600 dark:text-amber-400" 
+                                                :style="{ 'transform': expandedWarningIndex === index ? 'rotate(90deg)' : 'rotate(0deg)', 'transition': 'transform 0.2s ease-in-out' }"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
+                                        
+                                        <!-- Warning Title/SKU -->
+                                        <div class="min-w-0 max-w-[568px] overflow-x-auto whitespace-nowrap">
+                                            <span class="font-semibold text-gray-800 dark:text-gray-200 truncate">
+                                                @{{ warning.reason || warning.sku }}
+                                            </span>
+                                        </div>
+                                        <span class="text-xs text-gray-500 dark:text-gray-400" v-if="warning.item && Object.keys(warning.item).length">
+                                            @{{ Object.keys(warning.item).length }} @lang('admin::app.settings.data-transfer.tracker.details')
+                                        </span>
+                                    </div>
+                                    
+                                    <!-- Expand Indicator -->
+                                    <div class="flex items-center gap-2 flex-shrink-0 ml-2">
+                                        <span 
+                                            class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-100 text-amber-700 dark:bg-amber-800/30 dark:text-amber-400"
+                                            v-if="expandedWarningIndex !== index"
+                                        >
+                                            <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                            @lang('admin::app.settings.data-transfer.tracker.view-details')
+                                        </span>
+                                         
+                                    </div>
+                                </button>
+                                
+                                <!-- Expanded Details Panel -->
+                                <div 
+                                    v-if="expandedWarningIndex === index" 
+                                    class="border-t border-amber-100 dark:border-amber-800/30 bg-amber-50/30 dark:bg-amber-900/10"
+                                >
+                                    <div class="p-4 pl-5">
+                                        <!-- Details Header -->
+                                        <div class="flex items-center gap-2 mb-3">
+                                            <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                            </svg>
+                                            <span class="text-sm font-medium text-amber-700 dark:text-amber-300">
+                                                @lang('admin::app.settings.data-transfer.tracker.warning-details')
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Key-Value Pairs with Scrollable Container -->
+                                         
+                                        <div v-if="warning.item && Object.keys(warning.item).length > 0" class="bg-white dark:bg-cherry-900 rounded-lg border border-amber-200 dark:border-amber-700/30 overflow-hidden">
+                                            <div class="max-h-64 overflow-y-auto">
+                                                <ul class="divide-y divide-amber-100 dark:divide-amber-800/30">
+                                                    <li 
+                                                        v-for="(warnMsg, warnIndex) in warning.item" 
+                                                        :key="warnIndex"
+                                                        class="p-3 hover:bg-amber-50/50 dark:hover:bg-amber-900/10"
+                                                    >
+                                                        <div class="flex items-start gap-3">
+                                                            <!-- Warning Icon -->
+                                                            <div class="w-6 h-6 rounded-md bg-amber-100 dark:bg-amber-800/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                                <svg class="w-3.5 h-3.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                                                </svg>
+                                                            </div>
+                                                            
+                                                            <div class="flex-1 min-w-0">
+                                                                <!-- Key -->
+                                                                <div class="flex items-center gap-2 mb-1">
+                                                                    <span class="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                                                                        @{{ warnIndex }}
+                                                                    </span>
+                                                                </div>
+                                                                
+                                                                <!-- Value with scrollable/break-word -->
+                                                                <div class="text-sm text-gray-700 dark:text-gray-300">
+                                                                    <div class="break-words whitespace-pre-wrap font-mono text-xs bg-amber-50 dark:bg-amber-900/20 px-3 py-2 rounded-lg border border-amber-100 dark:border-amber-800/30 max-h-32 overflow-y-auto">
+                                                                        @{{ typeof warnMsg === 'object' ? JSON.stringify(warnMsg, null, 2) : warnMsg }}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Empty State -->
+                                        <div v-else class="text-center py-4">
+                                            <svg class="w-8 h-8 mx-auto text-amber-300 dark:text-amber-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                            </svg>
+                                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                                @lang('admin::app.settings.data-transfer.tracker.no-details')
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Export/error downloads -->
                     <div class="flex gap-2 mb-2" v-if="jobInstance.type == 'export' && importResource.file_path">
                         <a
@@ -1208,68 +1448,6 @@
                             target="_blank">
                             @lang('admin::app.settings.data-transfer.imports.import.download-error-report')
                         </a>
-                    </div>
-
-                    <!-- Warnings Section with Display Item (Completed State) - Per Product SKU Format -->
-
-                    <div class="rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 mb-4" v-if="warnings?.length">
-                        <div class="flex items-start gap-3">
-                            <svg class="w-5 h-5 mt-0.5 text-amber-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                            </svg>
-                            <div class="flex-1">
-                                <p class="font-semibold text-amber-800 dark:text-amber-300 mb-2">
-                                    @lang('admin::app.settings.data-transfer.tracker.warnings')
-                                </p>
-                                <!-- List of product SKUs with warnings -->
-                                <div class="space-y-2">
-                                    <div v-for="(warning, index) in warnings" :key="index" class="border border-amber-200 dark:border-amber-700 rounded-lg overflow-hidden">
-                                        <!-- SKU Header - Clickable to expand -->
-                                        <button
-                                            @click="toggleWarningItems(index)"
-                                            class="w-full flex items-center justify-between p-3 bg-amber-100 dark:bg-amber-800/50 hover:bg-amber-200 dark:hover:bg-amber-800 transition-colors">
-                                            <div class="flex items-center gap-2">
-                                                <svg
-                                                    class="w-4 h-4 text-amber-600 dark:text-amber-400"
-                                                    :style="{ 'transform': expandedWarningIndex === index ? 'rotate(90deg)' : 'rotate(0deg)', 'transition': 'transform 0.2s ease-in-out' }"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                                </svg>
-                                                <span
-                                                    class="font-medium text-amber-900 dark:text-amber-200 block max-w-[568px] overflow-x-auto whitespace-nowrap">
-                                                    @{{ warning.reason }}
-                                                </span>
-                                            </div>
-                                        </button>
-
-                                        <!-- Expanded warnings for this SKU -->
-                                        <div v-if="expandedWarningIndex === index" class="bg-white dark:bg-cherry-900 p-4 rounded-md border border-gray-200 dark:border-gray-700">
-                                            <ul class="space-y-2">
-                                                <li
-                                                    v-for="(warnMsg, warnIndex) in warning.item"
-                                                    :key="warnIndex"
-                                                    class="flex items-start gap-3 text-sm text-amber-700 dark:text-amber-400 py-2 border-b border-amber-200 dark:border-amber-700 last:border-b-0">
-                                                    <!-- Warning Icon -->
-                                                    <svg class="w-4 h-4 mt-1 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                                    </svg>
-
-                                                    <!-- Key -->
-                                                    <div class="min-w-[140px] font-medium text-gray-800 dark:text-gray-200">
-                                                        @{{ warnIndex }}
-                                                    </div>
-
-                                                    <!-- Value -->
-                                                    <div class="flex-1 break-words text-gray-700 dark:text-gray-300">
-                                                        @{{ warnMsg }}
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Bottom bar -->
@@ -1324,7 +1502,10 @@
                     },
 
                     toggleWarningItems(index) {
-                        this.expandedWarningIndex = this.expandedWarningIndex === index ? null : index;
+                        // Ensure we're comparing numbers properly
+                        const idx = Number(index);
+                        const current = this.expandedWarningIndex === null ? null : Number(this.expandedWarningIndex);
+                        this.expandedWarningIndex = current === idx ? null : idx;
                     },
 
                     formatDuration(seconds) {

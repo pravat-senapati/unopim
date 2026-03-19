@@ -1120,6 +1120,14 @@ return [
                 'update-success'    => 'Eksport został pomyślnie zaktualizowany.',
                 'failed-info'       => 'Zadanie zakończyło się niepowodzeniem. Napraw błędy i spróbuj ponownie.',
                 'download-log-file' => 'Pobierz dziennik',
+                'warning-count'         => 'Łączna liczba ostrzeżeń',
+                'found'                 => 'znaleziono',
+                'details'               => 'szczegóły',
+                'view-details'          => 'Zobacz',
+                'warning-details'       => 'Szczegóły ostrzeżenia',
+                'no-details'            => 'Brak dodatkowych szczegółów',
+                'field'                 => 'Pole',
+                'value'                 => 'Wartość',
             ],
 
             'import' => [
