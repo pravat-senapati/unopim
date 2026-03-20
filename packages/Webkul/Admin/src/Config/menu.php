@@ -134,33 +134,8 @@ return [
     [
         'key'    => 'configuration',
         'name'   => 'admin::app.components.layouts.sidebar.configure',
-        'route'  => 'admin.configuration.edit',
+        'route'  => 'admin.configuration.integrations.index',
         'sort'   => 9,
         'icon'   => 'icon-configuration',
-    ], [
-        'key'    => 'magic-ai',
-        'name'   => 'admin::app.components.layouts.sidebar.magic-ai',
-        'route'  => 'admin.configuration.edit', 
-        'sort'   => 10,
-        'icon'   => 'icon-configuration',
-    ], [
-        'key'    => 'magic-ai.general',
-        'name'   => 'admin::app.components.layouts.sidebar.general-tab',
-        'route'  => 'admin.configuration.edit',
-        'sort'   => 1,
-        'icon'   => '',
-    ], [
-        'key'    => 'magic-ai.prompt',
-        'name'   => 'admin::app.components.layouts.sidebar.prompt',
-        'route'  => 'admin.magic_ai.prompt.index',
-        'sort'   => 2,
-        'icon'   => '',
-    ],
-    [
-        'key'    => 'magic-ai.system-prompt',
-        'name'   => 'System Prompt',
-        'route'  => 'admin.magic_ai.system_prompt.index',
-        'sort'   => 3,
-        'icon'   => '',
     ],
 ];
