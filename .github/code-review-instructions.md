@@ -1,0 +1,1 @@
+for the coding pattern read the unopim-shopware-connector where you can find the coding pattern for the shopware connector.

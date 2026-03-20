@@ -21,5 +21,6 @@ return [
         \Webkul\Product\Providers\ModuleServiceProvider::class,
         \Webkul\User\Providers\ModuleServiceProvider::class,
         \Webkul\MagicAI\Providers\ModuleServiceProvider::class,
+        \Webkul\AiAgent\Providers\ModuleServiceProvider::class,
     ],
 ];
