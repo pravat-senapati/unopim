@@ -5,7 +5,7 @@ return [
         'key'   => 'configuration.integrations',
         'name'  => 'admin::app.components.layouts.sidebar.integrations',
         'route' => 'admin.configuration.integrations.index',
-        'sort'  => 1,
+        'sort'  => 2,
         'icon'  => '',
     ],
 ];

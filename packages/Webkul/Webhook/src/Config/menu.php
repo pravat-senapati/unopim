@@ -5,6 +5,6 @@ return [
         'key'   => 'configuration.webhook',
         'name'  => 'webhook::app.components.layouts.sidebar.menu.webhook.name',
         'route' => 'webhook.settings.index',
-        'sort'  => 2,
+        'sort'  => 3,
     ],
 ];
