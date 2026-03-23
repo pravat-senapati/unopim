@@ -376,8 +376,13 @@ class BulkProductTranslationJob implements ShouldQueue
                 $decoded = json_decode($translated, true);
 
                 if (! is_array($decoded)) {
-                    $this->jobLogger->error('AI returned invalid JSON: '.$decoded);
+                    $jsonError = function_exists('json_last_error_msg')
+                        ? json_last_error_msg()
+                        : 'Unknown JSON error';
 
+                    $this->jobLogger->error(
+                        'AI returned invalid JSON. Raw response: ' . $translated . ' | JSON error: ' . $jsonError
+                    );
                     continue;
                 }
 
