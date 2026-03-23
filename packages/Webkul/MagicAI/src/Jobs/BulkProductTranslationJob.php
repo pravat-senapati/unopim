@@ -243,8 +243,20 @@ class BulkProductTranslationJob implements ShouldQueue
         ProductRepository $productRepository
     ) {
         $productValues = $product->values ?? [];
-        $sku = $productValues['common']['sku'];
 
+        $sku = null;
+
+        if (isset($productValues['common']['sku'])) {
+            $sku = $productValues['common']['sku'];
+        } elseif (isset($product->sku)) {
+            $sku = $product->sku;
+        }
+
+        if (! $sku) {
+            $this->jobLogger->error('SKU could not be determined for product during translation job.');
+
+            return;
+        }
         $replaceTranslation = core()->getConfigData('general.magic_ai.translation.replace');
         // Get existing values structure or create new one
         if (! isset($productValues['channel_locale_specific'])) {
