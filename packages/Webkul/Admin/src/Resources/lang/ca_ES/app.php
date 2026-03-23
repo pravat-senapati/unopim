@@ -332,6 +332,7 @@ return [
                 'success'         => 'Operació completada amb èxit.',
                 'fetch-failed'    => 'Error en obtenir les dades.',
                 'action'          => 'Edició en massa',
+                'translation'     => 'Traducció massiva',
                 'gallery-preview' => 'Previsualització de la galeria',
                 'img-preview'     => 'Previsualització de la imatge',
                 'no-image'        => 'Sense imatge',

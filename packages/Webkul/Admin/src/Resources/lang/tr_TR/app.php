@@ -331,6 +331,7 @@ return [
                 'success'         => 'İşlem başarıyla gerçekleştirildi.',
                 'fetch-failed'    => 'Veri alınamadı.',
                 'action'          => 'Toplu Düzenleme',
+                'translation'     => 'Toplu Çeviri',
                 'gallery-preview' => 'Galeri Önizleme',
                 'img-preview'     => 'Resim Önizleme',
                 'no-image'        => 'Resim Yok',

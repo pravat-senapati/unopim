@@ -332,6 +332,7 @@ return [
                 'success'         => 'تم تنفيذ العملية بنجاح.',
                 'fetch-failed'    => 'فشل في الجلب.',
                 'action'          => 'تحرير جماعي',
+                'translation'     => 'الترجمة الجماعية',
                 'gallery-preview' => 'معاينة المعرض',
                 'img-preview'     => 'معاينة الصورة',
                 'no-image'        => 'لا توجد صورة',

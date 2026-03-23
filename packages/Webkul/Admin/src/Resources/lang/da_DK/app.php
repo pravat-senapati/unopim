@@ -331,6 +331,7 @@ return [
                 'success'         => 'Handling gennemført med succes.',
                 'fetch-failed'    => 'Hentning mislykkedes.',
                 'action'          => 'Masseændring',
+                'translation'     => 'Masseoversættelse',
                 'gallery-preview' => 'Galleri forhåndsvisning',
                 'img-preview'     => 'Billedforhåndsvisning',
                 'no-image'        => 'Intet billede',

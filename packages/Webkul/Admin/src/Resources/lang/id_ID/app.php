@@ -331,6 +331,7 @@ return [
                 'success'         => 'Pekerjaan berhasil dijalankan.',
                 'fetch-failed'    => 'Gagal mengambil data.',
                 'action'          => 'Edit Massal',
+                'translation'     => 'Traduzione di massa',
                 'gallery-preview' => 'Pratinjau Galeri',
                 'img-preview'     => 'Pratinjau Gambar',
                 'no-image'        => 'Tidak Ada Gambar',

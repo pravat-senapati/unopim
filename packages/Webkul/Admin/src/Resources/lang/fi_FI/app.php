@@ -331,6 +331,7 @@ return [
                 'success'         => 'Toiminto suoritettu onnistuneesti.',
                 'fetch-failed'    => 'Tietojen haku epäonnistui.',
                 'action'          => 'Massamuokkaus',
+                'translation'     => 'Massakäännös',
                 'gallery-preview' => 'Gallerian esikatselu',
                 'img-preview'     => 'Kuvan esikatselu',
                 'no-image'        => 'Ei kuvaa',

@@ -331,6 +331,7 @@ return [
                 'success'         => 'Operación realizada con éxito.',
                 'fetch-failed'    => 'Error al obtener los datos.',
                 'action'          => 'Edición masiva',
+                'translation'     => 'Traducción masiva',
                 'gallery-preview' => 'Vista previa de galería',
                 'img-preview'     => 'Vista previa de imagen',
                 'no-image'        => 'Sin imagen',

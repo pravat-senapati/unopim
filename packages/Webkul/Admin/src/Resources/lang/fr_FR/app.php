@@ -331,6 +331,7 @@ return [
                 'success'         => 'Opération réussie.',
                 'fetch-failed'    => 'Échec de la récupération.',
                 'action'          => 'Édition en masse',
+                'translation'     => 'Traduction en masse',
                 'gallery-preview' => 'Aperçu de la galerie',
                 'img-preview'     => 'Aperçu de l’image',
                 'no-image'        => 'Pas d’image',

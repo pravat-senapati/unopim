@@ -331,6 +331,7 @@ return [
                 'success'         => 'Operazione completata con successo.',
                 'fetch-failed'    => 'Impossibile recuperare i dati.',
                 'action'          => 'Modifica di massa',
+                'translation'     => 'Traduzione di massa',
                 'gallery-preview' => 'Anteprima Galleria',
                 'img-preview'     => 'Anteprima Immagine',
                 'no-image'        => 'Nessuna Immagine',

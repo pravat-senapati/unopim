@@ -332,6 +332,7 @@ return [
                 'success'         => 'Vorgang erfolgreich abgeschlossen.',
                 'fetch-failed'    => 'Abruf fehlgeschlagen.',
                 'action'          => 'Massenbearbeitung',
+                'translation'     => 'Massenübersetzung',
                 'gallery-preview' => 'Galerievorschau',
                 'img-preview'     => 'Bildvorschau',
                 'no-image'        => 'Kein Bild',

@@ -331,6 +331,7 @@ return [
                 'success'         => 'Thực thi công việc thành công.',
                 'fetch-failed'    => 'Lấy dữ liệu thất bại.',
                 'action'          => 'Chỉnh sửa hàng loạt',
+                'translation'     => 'Dịch hàng loạt',
                 'gallery-preview' => 'Xem trước thư viện',
                 'img-preview'     => 'Xem trước hình ảnh',
                 'no-image'        => 'Không có hình ảnh',

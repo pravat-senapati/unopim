@@ -331,6 +331,7 @@ return [
                 'success'         => 'Jobb fullført.',
                 'fetch-failed'    => 'Henting mislyktes.',
                 'action'          => 'Masseendring',
+                'translation'     => 'Masseoversettelse',
                 'gallery-preview' => 'Galleri forhåndsvisning',
                 'img-preview'     => 'Bilde forhåndsvisning',
                 'no-image'        => 'Ingen bilde',

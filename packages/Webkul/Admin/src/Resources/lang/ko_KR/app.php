@@ -331,6 +331,7 @@ return [
                 'success'         => '작업이 성공적으로 실행되었습니다.',
                 'fetch-failed'    => '가져오기 실패.',
                 'action'          => '일괄 편집',
+                'translation'     => '일괄 번역',
                 'gallery-preview' => '갤러리 미리보기',
                 'img-preview'     => '이미지 미리보기',
                 'no-image'        => '이미지 없음',

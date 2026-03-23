@@ -331,6 +331,7 @@ return [
                 'success'         => 'Operacija uspješno izvršena.',
                 'fetch-failed'    => 'Preuzimanje nije uspjelo.',
                 'action'          => 'Grupno uređivanje',
+                'translation'     => 'Masovni prijevod',
                 'gallery-preview' => 'Pregled galerije',
                 'img-preview'     => 'Pregled slike',
                 'no-image'        => 'Nema slike',

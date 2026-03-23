@@ -331,6 +331,7 @@ return [
                 'success'         => 'ジョブが正常に実行されました。',
                 'fetch-failed'    => '取得に失敗しました。',
                 'action'          => '一括編集',
+                'translation'     => '一括翻訳',
                 'gallery-preview' => 'ギャラリープレビュー',
                 'img-preview'     => '画像プレビュー',
                 'no-image'        => '画像なし',

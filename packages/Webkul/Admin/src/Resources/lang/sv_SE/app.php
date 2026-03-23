@@ -325,6 +325,7 @@ return [
                 'success'         => 'Uppgiften har utförts.',
                 'fetch-failed'    => 'Misslyckades med att hämta.',
                 'action'          => 'Massredigering',
+                'translation'     => 'Massöversättning',
                 'gallery-preview' => 'Galleri Förhandsgranskning',
                 'img-preview'     => 'Bildförhandsvisning',
                 'no-image'        => 'Ingen bild',

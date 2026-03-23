@@ -331,6 +331,7 @@ return [
                 'success'         => 'Sarcină executată cu succes.',
                 'fetch-failed'    => 'Eroare la preluare.',
                 'action'          => 'Editare în masă',
+                'translation'     => 'Traducere în masă',
                 'gallery-preview' => 'Previzualizare galerie',
                 'img-preview'     => 'Previzualizare imagine',
                 'no-image'        => 'Nicio imagine',

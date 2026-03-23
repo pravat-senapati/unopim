@@ -331,6 +331,7 @@ return [
                 'success'         => '任务已成功执行。',
                 'fetch-failed'    => '获取失败。',
                 'action'          => '批量编辑',
+                'translation'     => '批量翻译',
                 'gallery-preview' => '图库预览',
                 'img-preview'     => '图片预览',
                 'no-image'        => '无图片',

@@ -325,6 +325,7 @@ return [
                 'success'         => 'Matagumpay na naisagawa ang gawain.',
                 'fetch-failed'    => 'Hindi nakuha ang datos.',
                 'action'          => 'Maramihang Pag-edit',
+                'translation'     => 'Maramihang Pagsasalin',
                 'gallery-preview' => 'Gallery Preview',
                 'img-preview'     => 'Image Preview',
                 'no-image'        => 'Walang Imahe',

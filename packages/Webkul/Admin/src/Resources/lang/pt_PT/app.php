@@ -331,6 +331,7 @@ return [
                 'success'         => 'Tarefa executada com sucesso.',
                 'fetch-failed'    => 'Falha ao obter dados.',
                 'action'          => 'Edição em massa',
+                'translation'     => 'Tradução em massa',
                 'gallery-preview' => 'Pré-visualização da Galeria',
                 'img-preview'     => 'Pré-visualização da Imagem',
                 'no-image'        => 'Sem imagem',

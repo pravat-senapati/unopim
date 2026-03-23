@@ -331,6 +331,7 @@ return [
                 'success'         => 'Taak succesvol uitgevoerd.',
                 'fetch-failed'    => 'Ophalen mislukt.',
                 'action'          => 'Bulk Bewerken',
+                'translation'     => 'Bulkvertaling',
                 'gallery-preview' => 'Galerijvoorbeeld',
                 'img-preview'     => 'Afbeeldingvoorbeeld',
                 'no-image'        => 'Geen Afbeelding',

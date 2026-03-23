@@ -331,6 +331,7 @@ return [
                 'success'         => '任務執行成功。',
                 'fetch-failed'    => '取得資料失敗。',
                 'action'          => '批次編輯',
+                'translation'     => '批量翻譯',
                 'gallery-preview' => '圖庫預覽',
                 'img-preview'     => '圖片預覽',
                 'no-image'        => '無圖片',

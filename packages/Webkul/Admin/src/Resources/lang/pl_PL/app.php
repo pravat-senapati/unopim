@@ -331,6 +331,7 @@ return [
                 'success'         => 'Zadanie zostało pomyślnie wykonane.',
                 'fetch-failed'    => 'Nie udało się pobrać.',
                 'action'          => 'Edycja zbiorcza',
+                'translation'     => 'Tłumaczenie masowe',
                 'gallery-preview' => 'Podgląd galerii',
                 'img-preview'     => 'Podgląd obrazu',
                 'no-image'        => 'Brak obrazu',
