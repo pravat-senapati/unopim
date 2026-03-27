@@ -142,7 +142,8 @@ Route::group(['middleware' => ['admin'], 'prefix' => config('app.admin_url')], f
         });
 
         Route::controller(AjaxOptionsController::class)->prefix('ajax-options')->group(function () {
-            Route::get('fetch-options', 'getOptions')->name('admin.catalog.options.fetch-all');
+            Route::match(['GET', 'POST'], 'fetch-options', 'getOptions')
+                ->name('admin.catalog.options.fetch-all');
         });
 
         /**
@@ -184,11 +185,15 @@ Route::group(['middleware' => ['admin'], 'prefix' => config('app.admin_url')], f
 
             Route::get('fetch-attributes', 'getAttributes')->name('admin.catalog.bulkedit.attributes.fetch-all');
 
+            Route::get('fetch-attributes-bulk-translations', 'getAttributesForBulkTranslation')->name('admin.catalog.bulkedit.attributes.fetch-translation');
+
             Route::post('filters', 'filters')->name('admin.catalog.products.bulkedit.filters');
 
             Route::post('save', 'handleBulkSave')->name('admin.catalog.products.bulk-edit.save');
 
             Route::post('save-media', 'storeProductMedia')->name('admin.catalog.products.bulk-edit.save-media');
+
+            Route::post('translate', 'bulkTranslate')->name('admin.catalog.products.bulk-translate');
         });
     });
 });

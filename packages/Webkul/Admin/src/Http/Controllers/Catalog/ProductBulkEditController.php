@@ -18,6 +18,7 @@ use Webkul\Core\Filesystem\FileStorer;
 use Webkul\DataTransfer\Jobs\System\BulkProductUpdate;
 use Webkul\DataTransfer\Repositories\JobInstancesRepository;
 use Webkul\DataTransfer\Repositories\JobTrackRepository;
+use Webkul\MagicAI\Jobs\BulkProductTranslationJob;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Product\Validator\API\UploadMediaValidator;
 
@@ -279,6 +280,106 @@ class ProductBulkEditController extends Controller
             'options'  => $formattedAttributes,
             'page'     => $attributes->currentPage(),
             'lastPage' => $attributes->lastPage(),
+        ]);
+    }
+
+    /**
+     * Retrieve attributes for bulk translation.
+     *
+     * @return JsonResponse
+     */
+    public function getAttributesForBulkTranslation(Request $request)
+    {
+        $query = $this->attributeRepository
+            ->whereNotIn('code', ['sku'])
+            ->whereNotIn('type', ['table', 'file'])
+            ->where('ai_translate', 1);
+
+        if ($request->filled('ids')) {
+            $ids = (array) $request->input('ids');
+            $attributes = $query->whereIn('id', $ids)->paginate(self::DEFAULT_PER_PAGE);
+
+        } elseif ($request->filled('query')) {
+            $queryParam = $request->get('query', '');
+
+            $attributes = $query->where(function ($queryBuilder) use ($queryParam) {
+                $queryBuilder->whereTranslationLike('name', '%'.$queryParam.'%')
+                    ->orWhere('code', 'like', '%'.$queryParam.'%');
+            })->paginate(self::DEFAULT_PER_PAGE);
+
+        } else {
+            $attributes = $query->orderBy('id', 'asc')->paginate(self::DEFAULT_PER_PAGE);
+        }
+
+        $currentLocaleCode = core()->getRequestedLocaleCode();
+
+        $formattedAttributes = [];
+
+        foreach ($attributes as $attribute) {
+            $translatedLabel = $attribute->translate($currentLocaleCode);
+
+            $formattedAttributes[] = [
+                'id'    => $attribute->id,
+                'code'  => $attribute->code,
+                'name'  => ! empty($translatedLabel->name) ? $translatedLabel->name : "[{$attribute->code}]",
+                ...$attribute->makeHidden(['translations', 'name'])->toArray(),
+            ];
+        }
+
+        return new JsonResponse([
+            'options'  => $formattedAttributes,
+            'page'     => $attributes->currentPage(),
+            'lastPage' => $attributes->lastPage(),
+        ]);
+    }
+
+    /**
+     * Handle bulk translation of products.
+     *
+     * @return JsonResponse
+     */
+    public function bulkTranslate(Request $request)
+    {
+        $validated = $request->validate([
+            'channel'               => 'required|string',
+            'locale'                => 'required|string',
+            'targetChannel'         => 'required|string',
+            'targetLocale'          => 'required|string|min:1',
+            'filtered_attributes'   => 'required|string|min:1',
+            'product_ids'           => 'required|string|min:1',
+        ]);
+
+        $productIds = explode(',', $validated['product_ids']);
+
+        if (count($productIds) > 100) {
+            return response()->json([
+                'message' => trans('admin::app.catalog.products.bulk-edit.filter.many-product'),
+            ], 422);
+        }
+
+        $sourceChannel = $validated['channel'];
+        $sourceLocale = $validated['locale'];
+        $targetChannel = $validated['targetChannel'];
+        $targetLocales = explode(',', $validated['targetLocale']);
+        $attributeCodes = explode(',', $validated['filtered_attributes']);
+
+        // Get current user ID
+        $userId = auth()->guard('admin')->user()->id;
+
+        // Dispatch the background job to process translations
+        BulkProductTranslationJob::dispatch(
+            $productIds,
+            $attributeCodes,
+            $sourceChannel,
+            $sourceLocale,
+            $targetChannel,
+            $targetLocales,
+            $userId
+        );
+
+        return new JsonResponse([
+            'message' => trans('admin::app.catalog.products.bulk-translation.modal.translation-started'),
+            'status'  => 'success',
         ]);
     }
 }

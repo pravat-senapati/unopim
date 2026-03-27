@@ -1,5 +1,6 @@
 <x-admin::layouts>
     <x-admin::products.bulk-edit-modal />
+    <x-admin::products.bulk-translation-modal />
     <x-slot:title>
         @lang('admin::app.catalog.products.index.title')
         </x-slot>

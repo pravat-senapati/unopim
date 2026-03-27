@@ -383,6 +383,7 @@ return [
                 'success'         => 'Job executed successfully.',
                 'fetch-failed'    => 'Failed to fetch.',
                 'action'          => 'Bulk Edit',
+                'translation'     => 'Bulk Translation',
                 'gallery-preview' => 'Gallery Preview',
                 'img-preview'     => 'Image Preview',
                 'no-image'        => 'No Image',

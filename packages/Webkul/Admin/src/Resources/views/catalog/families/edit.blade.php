@@ -588,7 +588,7 @@
                             this.isLoading = true;
 
                             this.$axios
-                                .get(this.getAttributeRoute, {params: this.params})
+                                .post(this.getAttributeRoute, this.params)
                                 .then(result => {
                                     this.customAttributes = result.data.options;
 
